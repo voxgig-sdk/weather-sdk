@@ -1,0 +1,32 @@
+# BasicWeatherFlow
+
+main: kit: flow: BasicWeatherFlow:
+{
+  entity: "weather",
+  kind: "basic",
+  name: "BasicWeatherFlow",
+  step: [
+    {
+      input: {
+        ref: "weather_ref01",
+        srcdatavar: "weather_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "weather01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-weather_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWeatherFlow"
+}

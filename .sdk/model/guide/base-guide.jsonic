@@ -1,0 +1,19 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: weather: {
+    path: "/v2/weather/{city}": {
+      rename: param: "city": *"id"
+      op: load: method: *GET
+    }
+    path: "/weather/{city}": {
+      rename: param: "city": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

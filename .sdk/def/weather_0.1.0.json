@@ -1,0 +1,250 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Weather API",
+    "description": "A RESTful API to check the current weather by providing city names as parameters. It offers functionalities to get temperature, wind speed, and a weather description in a simple JSON format.",
+    "version": "2.0.0",
+    "contact": {
+      "url": "https://github.com/robertoduessmann/weather-api"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/robertoduessmann/weather-api/blob/master/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://goweather.xyz",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/weather/{city}": {
+      "get": {
+        "summary": "Get current weather for a city",
+        "description": "Returns the current weather conditions including temperature, wind speed, description, and a 2-day forecast for the specified city.",
+        "operationId": "getWeatherByCity",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "description": "Name of the city to get weather information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Berlin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherResponse"
+                },
+                "example": {
+                  "temperature": "29 °C",
+                  "wind": "20 km/h",
+                  "description": "Partly cloudy",
+                  "forecast": [
+                    {
+                      "day": "1",
+                      "temperature": "27 °C",
+                      "wind": "12 km/h"
+                    },
+                    {
+                      "day": "2",
+                      "temperature": "22 °C",
+                      "wind": "8 km/h"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "City not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Weather"
+        ]
+      }
+    },
+    "/v2/weather/{city}": {
+      "get": {
+        "summary": "Get current weather for a city (v2)",
+        "description": "Returns the current weather conditions including temperature, wind speed, description, and a 2-day forecast for the specified city. Version 2 endpoint.",
+        "operationId": "getWeatherByCityV2",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "description": "Name of the city to get weather information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Berlin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherResponse"
+                },
+                "example": {
+                  "temperature": "29 °C",
+                  "wind": "20 km/h",
+                  "description": "Partly cloudy",
+                  "forecast": [
+                    {
+                      "day": "1",
+                      "temperature": "27 °C",
+                      "wind": "12 km/h"
+                    },
+                    {
+                      "day": "2",
+                      "temperature": "22 °C",
+                      "wind": "8 km/h"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "City not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Weather"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WeatherResponse": {
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "type": "string",
+            "description": "Current temperature with unit (°C)",
+            "example": "29 °C"
+          },
+          "wind": {
+            "type": "string",
+            "description": "Current wind speed with unit (km/h)",
+            "example": "20 km/h"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of current weather conditions",
+            "example": "Partly cloudy"
+          },
+          "forecast": {
+            "type": "array",
+            "description": "Weather forecast for the next 2 days",
+            "items": {
+              "$ref": "#/components/schemas/ForecastDay"
+            }
+          }
+        },
+        "required": [
+          "temperature",
+          "wind",
+          "description",
+          "forecast"
+        ]
+      },
+      "ForecastDay": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "Day number (1 for tomorrow, 2 for day after tomorrow)",
+            "example": "1"
+          },
+          "temperature": {
+            "type": "string",
+            "description": "Forecasted temperature with unit (°C)",
+            "example": "27 °C"
+          },
+          "wind": {
+            "type": "string",
+            "description": "Forecasted wind speed with unit (km/h)",
+            "example": "12 km/h"
+          }
+        },
+        "required": [
+          "day",
+          "temperature",
+          "wind"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Weather",
+      "description": "Operations related to weather information retrieval"
+    }
+  ],
+  "externalDocs": {
+    "description": "GitHub Repository and Full Documentation",
+    "url": "https://github.com/robertoduessmann/weather-api"
+  }
+}

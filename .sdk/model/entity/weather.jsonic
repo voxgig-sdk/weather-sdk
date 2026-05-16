@@ -1,0 +1,110 @@
+# Entity: weather
+
+main: kit: entity: weather: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "forecast"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "temperature"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "wind"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "weather"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "Berlin"
+                kind: "param"
+                name: "id"
+                orig: "city"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/v2/weather/{city}"
+          parts: [
+            "v2"
+            "weather"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              city: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "Berlin"
+                kind: "param"
+                name: "id"
+                orig: "city"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/weather/{city}"
+          parts: [
+            "weather"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              city: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "weather": {
+      "WEATHER00": {
+        "description": "s28",
+        "forecast": [],
+        "temperature": "s2a",
+        "wind": "s2b"
+      },
+      "WEATHER01": {
+        "description": "s50",
+        "forecast": [],
+        "temperature": "s52",
+        "wind": "s53"
+      },
+      "WEATHER02": {
+        "description": "s78",
+        "forecast": [],
+        "temperature": "s7a",
+        "wind": "s7b"
+      }
+    }
+  },
+  "new": {
+    "weather": {
+      "weather_ref01": {
+        "description": "sa0",
+        "forecast": [],
+        "temperature": "sa2",
+        "wind": "sa3"
+      }
+    }
+  }
+}
