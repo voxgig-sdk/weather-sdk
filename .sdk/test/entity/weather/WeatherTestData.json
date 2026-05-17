@@ -5,19 +5,22 @@
         "description": "s28",
         "forecast": [],
         "temperature": "s2a",
-        "wind": "s2b"
+        "wind": "s2b",
+        "id": "WEATHER00"
       },
       "WEATHER01": {
         "description": "s50",
         "forecast": [],
         "temperature": "s52",
-        "wind": "s53"
+        "wind": "s53",
+        "id": "WEATHER01"
       },
       "WEATHER02": {
         "description": "s78",
         "forecast": [],
         "temperature": "s7a",
-        "wind": "s7b"
+        "wind": "s7b",
+        "id": "WEATHER02"
       }
     }
   },

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/weather-sdk/core"
+import "github.com/voxgig-sdk/weather-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name
