@@ -20,9 +20,6 @@ class WeatherConfig
             ],
             "options" => [
                 "base" => "http://goweather.xyz",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

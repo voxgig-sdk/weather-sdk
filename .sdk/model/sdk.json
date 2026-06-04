@@ -24,7 +24,17 @@
           }
         ],
         "title": "Weather API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "tagline": "Look up current weather and a short forecast for a city, no API key required",
+        "homepage": "https://goweather.xyz",
+        "docs_url": "https://github.com/robertoduessmann/weather-api",
+        "license_short": "MIT License",
+        "license_md": "- Licensed under the MIT License via the upstream [weather-api](https://github.com/robertoduessmann/weather-api) project by Roberto Duessmann.\n- Free to use, modify, and redistribute with attribution and the original licence notice.\n- The hosted instance at `goweather.xyz` is provided as-is with no uptime guarantee.",
+        "about_md": "The Weather API is a small open-source REST service written in Go by [Roberto Duessmann](https://github.com/robertoduessmann/weather-api). A public instance is hosted at [goweather.xyz](https://goweather.xyz) and the source is available on GitHub under the MIT licence.\n\nGiven a city name, the API returns the current conditions and a short forecast as JSON. Each response includes:\n\n- `temperature` — current temperature (°C)\n- `wind` — wind speed (km/h)\n- `description` — short text description of conditions\n- `forecast` — array of upcoming days with `day`, `temperature`, and `wind`\n\nNo authentication or API key is required. The hosted instance is a community-run project and may be intermittently unavailable; for production use you can self-host the Go service from the upstream repository.",
+        "entity_desc": {
+          "weather": "Current weather and short forecast for a named city, served from `/v2/weather/{city}`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -32,7 +42,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "weather": {

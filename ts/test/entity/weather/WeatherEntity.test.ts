@@ -111,7 +111,6 @@ function basicSetup(extra?: any) {
     'WEATHER_TEST_WEATHER_ENTID': idmap,
     'WEATHER_TEST_LIVE': 'FALSE',
     'WEATHER_TEST_EXPLAIN': 'FALSE',
-    'WEATHER_APIKEY': 'NONE',
   })
 
   idmap = env['WEATHER_TEST_WEATHER_ENTID']
@@ -121,7 +120,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new WeatherSDK(merge([
       {
-        apikey: env.WEATHER_APIKEY,
       },
       extra
     ]))

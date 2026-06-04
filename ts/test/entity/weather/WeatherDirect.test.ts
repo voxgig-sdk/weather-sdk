@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'WEATHER_TEST_WEATHER_ENTID': {},
     'WEATHER_TEST_LIVE': 'FALSE',
-    'WEATHER_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.WEATHER_TEST_LIVE
 
   if (live) {
     const client = new WeatherSDK({
-      apikey: env.WEATHER_APIKEY,
     })
 
     let idmap: any = env['WEATHER_TEST_WEATHER_ENTID']
