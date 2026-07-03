@@ -1,21 +1,8 @@
 # Weather SDK
 
-Look up current weather and a short forecast for a city, no API key required
+Weather API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Weather API
-
-The Weather API is a small open-source REST service written in Go by [Roberto Duessmann](https://github.com/robertoduessmann/weather-api). A public instance is hosted at [goweather.xyz](https://goweather.xyz) and the source is available on GitHub under the MIT licence.
-
-Given a city name, the API returns the current conditions and a short forecast as JSON. Each response includes:
-
-- `temperature` — current temperature (°C)
-- `wind` — wind speed (km/h)
-- `description` — short text description of conditions
-- `forecast` — array of upcoming days with `day`, `temperature`, and `wind`
-
-No authentication or API key is required. The hosted instance is a community-run project and may be intermittently unavailable; for production use you can self-host the Go service from the upstream repository.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install weather-sdk
 luarocks install weather-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { WeatherSDK } from 'weather'
 
-const client = new WeatherSDK({})
+const client = new WeatherSDK({
+  apikey: process.env.WEATHER_APIKEY,
+})
 
+// Load weather data
+const weather = await client.Weather().load({})
+console.log(weather.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Weather** | Current weather and short forecast for a named city, served from `/v2/weather/{city}`. | `/v2/weather/{city}` |
+| **Weather** |  | `/v2/weather/{city}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from weather_sdk import WeatherSDK
 
-client = WeatherSDK({})
+client = WeatherSDK({
+    "apikey": os.environ.get("WEATHER_APIKEY"),
+})
 
 
 # Load a specific weather
-weather, err = client.Weather(None).load(
-    {"id": "example_id"}, None
-)
+weather, err = client.Weather().load({"id": "example_id"})
+print(weather)
 ```
 
 ### PHP
@@ -126,13 +119,14 @@ weather, err = client.Weather(None).load(
 <?php
 require_once 'weather_sdk.php';
 
-$client = new WeatherSDK([]);
+$client = new WeatherSDK([
+    "apikey" => getenv("WEATHER_APIKEY"),
+]);
 
 
 // Load a specific weather
-[$weather, $err] = $client->Weather(null)->load(
-    ["id" => "example_id"], null
-);
+[$weather, $err] = $client->Weather()->load(["id" => "example_id"]);
+print_r($weather);
 ```
 
 ### Golang
@@ -140,8 +134,13 @@ $client = new WeatherSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/weather-sdk/go"
 
-client := sdk.NewWeatherSDK(map[string]any{})
+client := sdk.NewWeatherSDK(map[string]any{
+    "apikey": os.Getenv("WEATHER_APIKEY"),
+})
 
+// Load weather data
+weather, err := client.Weather(nil).Load(map[string]any{}, nil)
+fmt.Println(weather)
 ```
 
 ### Ruby
@@ -149,13 +148,14 @@ client := sdk.NewWeatherSDK(map[string]any{})
 ```ruby
 require_relative "Weather_sdk"
 
-client = WeatherSDK.new({})
+client = WeatherSDK.new({
+  "apikey" => ENV["WEATHER_APIKEY"],
+})
 
 
 # Load a specific weather
-weather, err = client.Weather(nil).load(
-  { "id" => "example_id" }, nil
-)
+weather, err = client.Weather().load({ "id" => "example_id" })
+puts weather
 ```
 
 ### Lua
@@ -163,13 +163,14 @@ weather, err = client.Weather(nil).load(
 ```lua
 local sdk = require("weather_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("WEATHER_APIKEY"),
+})
 
 
 -- Load a specific weather
-local weather, err = client:Weather(nil):load(
-  { id = "example_id" }, nil
-)
+local weather, err = client:Weather():load({ id = "example_id" })
+print(weather)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +189,21 @@ const result = await client.Weather().load({ id: 'test01' })
 ### Python
 
 ```python
-client = WeatherSDK.test(None, None)
-result, err = client.Weather(None).load(
-    {"id": "test01"}, None
-)
+client = WeatherSDK.test()
+result, err = client.Weather().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = WeatherSDK::test(null, null);
-[$result, $err] = $client->Weather(null)->load(
-    ["id" => "test01"], null
-);
+$client = WeatherSDK::test();
+[$result, $err] = $client->Weather()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Weather(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +212,15 @@ result, err := client.Weather(nil).Load(
 ### Ruby
 
 ```ruby
-client = WeatherSDK.test(nil, nil)
-result, err = client.Weather(nil).load(
-  { "id" => "test01" }, nil
-)
+client = WeatherSDK.test
+result, err = client.Weather().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Weather(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Weather():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Weather API
-
-- Upstream: [https://goweather.xyz](https://goweather.xyz)
-- API docs: [https://github.com/robertoduessmann/weather-api](https://github.com/robertoduessmann/weather-api)
-
-- Licensed under the MIT License via the upstream [weather-api](https://github.com/robertoduessmann/weather-api) project by Roberto Duessmann.
-- Free to use, modify, and redistribute with attribution and the original licence notice.
-- The hosted instance at `goweather.xyz` is provided as-is with no uptime guarantee.
 
 ---
 

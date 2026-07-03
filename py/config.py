@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "http://goweather.xyz",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,50 +29,52 @@ def make_config():
       "weather": {
         "fields": [
           {
+            "active": True,
             "name": "description",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "forecast",
             "req": True,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "temperature",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "wind",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "weather",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "Berlin",
                       "kind": "param",
                       "name": "id",
                       "orig": "city",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -94,20 +99,20 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "Berlin",
                       "kind": "param",
                       "name": "id",
                       "orig": "city",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -131,11 +136,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 1,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

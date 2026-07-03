@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'http://goweather.xyz',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,50 +59,52 @@ class Config {
     "weather": {
       "fields": [
         {
+          "active": true,
           "name": "description",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "forecast",
           "req": true,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "temperature",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "wind",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         }
       ],
       "name": "weather",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "Berlin",
                     "kind": "param",
                     "name": "id",
                     "orig": "city",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -123,20 +129,20 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "Berlin",
                     "kind": "param",
                     "name": "id",
                     "orig": "city",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -160,11 +166,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
