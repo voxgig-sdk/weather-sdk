@@ -10,7 +10,7 @@ The Python SDK for the Weather API — an entity-oriented client following Pytho
 
 ## Install
 ```bash
-pip install weather-sdk
+pip install voxgig-sdk-weather
 ```
 
 Or install from source:
