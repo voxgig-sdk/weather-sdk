@@ -32,8 +32,9 @@ client = WeatherSDK.new
 
 ```ruby
 begin
-  result = client.weather.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Weather record (raises on error).
+  weather = client.Weather.load({ "id" => "example_id" })
+  puts weather
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = WeatherSDK.test
+client = WeatherSDK.test({
+  "entity" => { "weather" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.weather.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+weather = client.Weather.load({ "id" => "test01" })
+puts weather
 ```
 
 ### Use a custom fetch function
@@ -221,7 +226,7 @@ API path: `/v2/weather/{city}`
 
 ### Weather
 
-Create an instance: `const weather = client.weather`
+Create an instance: `weather = client.Weather`
 
 #### Operations
 
@@ -240,8 +245,9 @@ Create an instance: `const weather = client.weather`
 
 #### Example: Load
 
-```ts
-const weather = await client.weather.load({ id: 'weather_id' })
+```ruby
+# load returns the bare Weather record (raises on error).
+weather = client.Weather.load({ "id" => "weather_id" })
 ```
 
 
@@ -316,7 +322,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-weather = client.weather
+weather = client.Weather
 weather.load({ "id" => "example_id" })
 
 # weather.data_get now returns the loaded weather data

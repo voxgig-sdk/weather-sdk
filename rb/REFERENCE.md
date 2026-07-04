@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## WeatherEntity
 
 ```ruby
-weather = client.weather
+weather = client.Weather
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ weather = client.weather
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.weather.load({ "id" => "weather_id" })
+result = client.Weather.load({ "id" => "weather_id" })
 ```
 
 ### Common Methods

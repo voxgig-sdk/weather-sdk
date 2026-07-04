@@ -109,7 +109,7 @@ Alias for `WeatherSDK.test()`.
 ## WeatherEntity
 
 ```ts
-const weather = client.weather
+const weather = client.Weather()
 ```
 
 ### Fields
@@ -128,7 +128,7 @@ const weather = client.weather
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.weather.load({ id: 'weather_id' })
+const result = await client.Weather().load({ id: 'weather_id' })
 ```
 
 ### Common Methods

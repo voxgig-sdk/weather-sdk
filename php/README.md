@@ -33,9 +33,10 @@ $client = new WeatherSDK();
 
 ```php
 try {
-    $result = $client->weather()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Weather record (throws on error).
+    $weather = $client->Weather()->load(["id" => "example_id"]);
+    print_r($weather);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = WeatherSDK::test();
+$client = WeatherSDK::test([
+    "entity" => ["weather" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->weather()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$weather = $client->Weather()->load(["id" => "test01"]);
+print_r($weather);
 ```
 
 ### Use a custom fetch function
@@ -226,7 +231,7 @@ API path: `/v2/weather/{city}`
 
 ### Weather
 
-Create an instance: `const weather = client.weather`
+Create an instance: `$weather = $client->Weather();`
 
 #### Operations
 
@@ -245,8 +250,9 @@ Create an instance: `const weather = client.weather`
 
 #### Example: Load
 
-```ts
-const weather = await client.weather.load({ id: 'weather_id' })
+```php
+// load() returns the bare Weather record (throws on error).
+$weather = $client->Weather()->load(["id" => "weather_id"]);
 ```
 
 
@@ -321,7 +327,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$weather = $client->weather();
+$weather = $client->Weather();
 $weather->load(["id" => "example_id"]);
 
 // $weather->dataGet() now returns the loaded weather data

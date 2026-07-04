@@ -26,9 +26,9 @@ import { WeatherSDK } from '@voxgig-sdk/weather'
 
 const client = new WeatherSDK()
 
-// Load weather data
-const weather = await client.weather.load({})
-console.log(weather.data)
+// Load weather data (returns a Weather)
+const weather = await client.Weather().load()
+console.log(weather)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from weather_sdk import WeatherSDK
 client = WeatherSDK()
 
 
-# Load a specific weather
-weather = client.weather.load({"id": "example_id"})
+# Load a specific weather (returns the record, raises on error)
+weather = client.Weather().load({"id": "example_id"})
 print(weather)
 ```
 
@@ -98,8 +98,8 @@ require_once 'weather_sdk.php';
 $client = new WeatherSDK();
 
 
-// Load a specific weather
-$weather = $client->weather()->load(["id" => "example_id"]);
+// Load a specific weather (returns the bare record; throws on error)
+$weather = $client->Weather()->load(["id" => "example_id"]);
 print_r($weather);
 ```
 
@@ -123,8 +123,8 @@ require_relative "Weather_sdk"
 client = WeatherSDK.new
 
 
-# Load a specific weather
-weather = client.weather.load({ "id" => "example_id" })
+# Load a specific weather (returns the bare record; raises on error)
+weather = client.Weather.load({ "id" => "example_id" })
 puts weather
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific weather
-local weather, err = client:weather():load({ id = "example_id" })
+local weather, err = client:Weather():load({ id = "example_id" })
 print(weather)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = WeatherSDK.test()
-const result = await client.weather.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const weather = await client.Weather().load({ id: 'test01' })
+// weather is a bare Weather populated with mock data
+console.log(weather)
 ```
 
 ### Python
 
 ```python
 client = WeatherSDK.test()
-result = client.weather.load({"id": "test01"})
+weather = client.Weather().load({"id": "test01"})
+print(weather)
 ```
 
 ### PHP
 
 ```php
-$client = WeatherSDK::test();
-$result = $client->weather()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = WeatherSDK::test([
+    "entity" => ["weather" => ["test01" => ["id" => "test01"]]],
+]);
+$weather = $client->Weather()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Weather(nil).Load(
 ### Ruby
 
 ```ruby
-client = WeatherSDK.test
-result = client.weather.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = WeatherSDK.test({
+  "entity" => { "weather" => { "test01" => { "id" => "test01" } } },
+})
+weather = client.Weather.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:weather():load({ id = "test01" })
+local result, err = client:Weather():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
