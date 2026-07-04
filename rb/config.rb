@@ -15,9 +15,6 @@ module WeatherConfig
       },
       "options" => {
         "base" => "http://goweather.xyz",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -75,6 +72,7 @@ module WeatherConfig
                         "orig" => "city",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -113,6 +111,7 @@ module WeatherConfig
                         "orig" => "city",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

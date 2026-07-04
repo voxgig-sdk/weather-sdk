@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch WeatherLoadMatch
+---@param ctrl? table
+---@return Weather
+---@return string? err
 function WeatherEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'http://goweather.xyz',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -104,7 +100,8 @@ class Config {
                     "name": "id",
                     "orig": "city",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -142,7 +139,8 @@ class Config {
                     "name": "id",
                     "orig": "city",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Weather,
+  WeatherLoadMatch,
+} from '../WeatherTypes'
 
 // TODO: needs Entity superclass
-class WeatherEntity extends WeatherEntityBase {
+class WeatherEntity extends WeatherEntityBase<Weather> {
 
   constructor(client: WeatherSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class WeatherEntity extends WeatherEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: WeatherLoadMatch, ctrl?: Control): Promise<Weather> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class WeatherEntity extends WeatherEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Weather> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
