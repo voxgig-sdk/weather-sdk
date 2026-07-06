@@ -116,10 +116,10 @@ const weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | Yes |  |
-| `forecast` | ``$ARRAY`` | Yes |  |
-| `temperature` | ``$STRING`` | Yes |  |
-| `wind` | ``$STRING`` | Yes |  |
+| `description` | `string` | Yes |  |
+| `forecast` | `any[]` | Yes |  |
+| `temperature` | `string` | Yes |  |
+| `wind` | `string` | Yes |  |
 
 ### Operations
 

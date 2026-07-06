@@ -87,10 +87,10 @@ weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | Yes |  |
-| `forecast` | ``$ARRAY`` | Yes |  |
-| `temperature` | ``$STRING`` | Yes |  |
-| `wind` | ``$STRING`` | Yes |  |
+| `description` | `str` | Yes |  |
+| `forecast` | `list` | Yes |  |
+| `temperature` | `str` | Yes |  |
+| `wind` | `str` | Yes |  |
 
 ### Operations
 

@@ -45,11 +45,11 @@ $client = WeatherSDK::test();
 
 Create a new `WeatherEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): WeatherUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,10 +92,10 @@ $weather = $client->Weather();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | Yes |  |
-| `forecast` | ``$ARRAY`` | Yes |  |
-| `temperature` | ``$STRING`` | Yes |  |
-| `wind` | ``$STRING`` | Yes |  |
+| `description` | `string` | Yes |  |
+| `forecast` | `array` | Yes |  |
+| `temperature` | `string` | Yes |  |
+| `wind` | `string` | Yes |  |
 
 ### Operations
 
@@ -109,19 +109,19 @@ $result = $client->Weather()->load(["id" => "weather_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -130,7 +130,7 @@ Set the entity match criteria.
 Create a new `WeatherEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

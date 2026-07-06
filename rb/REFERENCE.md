@@ -8,7 +8,7 @@ Complete API reference for the Weather Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'weather_sdk'
+require_relative 'Weather_sdk'
 
 client = WeatherSDK.new(options)
 ```
@@ -93,10 +93,10 @@ weather = client.Weather
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | Yes |  |
-| `forecast` | ``$ARRAY`` | Yes |  |
-| `temperature` | ``$STRING`` | Yes |  |
-| `wind` | ``$STRING`` | Yes |  |
+| `description` | `String` | Yes |  |
+| `forecast` | `Array` | Yes |  |
+| `temperature` | `String` | Yes |  |
+| `wind` | `String` | Yes |  |
 
 ### Operations
 
