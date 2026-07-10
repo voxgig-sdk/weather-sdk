@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single weather — the value is the loaded record.
-    weather, err := client.Weather(nil).Load(map[string]any{"id": "example"}, nil)
+    weather, err := client.Weather(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

@@ -23,9 +23,9 @@ main: {
           url: "http://localhost:3000"
         }
       ]
+      summary: "A RESTful API to check the current weather by providing city names as parameters."
       title: "Weather API"
       version: "2.0.0"
+      website: "https://github.com/robertoduessmann/weather-api"
     }
   }
-}
-

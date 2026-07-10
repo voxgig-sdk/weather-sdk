@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -277,6 +274,7 @@
           "name": "MIT",
           "url": "https://github.com/robertoduessmann/weather-api/blob/master/LICENSE"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
@@ -287,8 +285,10 @@
             "url": "http://localhost:3000"
           }
         ],
+        "summary": "A RESTful API to check the current weather by providing city names as parameters.",
         "title": "Weather API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://github.com/robertoduessmann/weather-api"
       },
       "option": {},
       "target": {
@@ -341,6 +341,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -391,6 +394,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
