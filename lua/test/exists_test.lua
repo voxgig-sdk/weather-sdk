@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Weather SDK exists test
 
 local sdk = require("weather_sdk")
 
