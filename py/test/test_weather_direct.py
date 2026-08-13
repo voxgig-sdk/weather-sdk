@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from weather_sdk.utility.voxgig_struct import voxgig_struct as vs
 from weather_sdk import WeatherSDK
-from core import helpers
+from weather_sdk.core import helpers
 from test import runner
 
 

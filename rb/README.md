@@ -34,7 +34,7 @@ client = WeatherSDK.new
 
 ```ruby
 begin
-  # load returns the bare Weather record (raises on error).
+  # load returns the ENTITY — call data_get for the Weather record (raises on error).
   weather = client.Weather.load({ "id" => "example_id" })
   puts weather
 rescue => err
@@ -120,7 +120,8 @@ client = WeatherSDK.test({
   "entity" => { "weather" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 weather = client.Weather.load({ "id" => "test01" })
 puts weather
 ```
@@ -273,7 +274,7 @@ Create an instance: `weather = client.Weather`
 #### Example: Load
 
 ```ruby
-# load returns the bare Weather record (raises on error).
+# load returns the ENTITY — call data_get for the Weather record (raises on error).
 weather = client.Weather.load({ "id" => "weather_id" })
 ```
 

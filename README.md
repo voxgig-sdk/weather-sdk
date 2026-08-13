@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new WeatherSDK()
-const weather = await client.Weather().load()
+const weather = await client.Weather().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = WeatherSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = WeatherSDK.test({
+  entity: {
+    weather: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const weather = await client.Weather().load({ id: 'test01' })
-// weather is a bare Weather populated with mock data
+// weather is the Weather entity, populated with mock data
+// — call weather.data() for the record itself
 console.log(weather)
 ```
 
@@ -182,7 +191,7 @@ require_once 'weather_sdk.php';
 $client = new WeatherSDK();
 
 
-// Load a specific weather (returns the bare record; throws on error)
+// Load a specific weather (returns the ENTITY; call data_get() for the record; throws on error)
 $weather = $client->Weather()->load(["id" => "example_id"]);
 print_r($weather);
 ```
@@ -210,7 +219,7 @@ require_relative "Weather_sdk"
 client = WeatherSDK.new
 
 
-# Load a specific weather (returns the bare record; raises on error)
+# Load a specific weather (returns the ENTITY; call data_get for the record)
 weather = client.Weather.load({ "id" => "example_id" })
 puts weather
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/robertoduessmann/weather-api](https://github.com/robertoduessmann/weather-api)
 

@@ -76,6 +76,7 @@ module WeatherConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v2/weather/{city}",
                   "parts" => [
@@ -115,6 +116,7 @@ module WeatherConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/weather/{city}",
                   "parts" => [

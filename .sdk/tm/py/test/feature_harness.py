@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import WeatherControl
-from core.error import WeatherError
-from core.result import WeatherResult
-from core.spec import WeatherSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import WeatherControl
+from projectname_sdk.core.error import WeatherError
+from projectname_sdk.core.result import WeatherResult
+from projectname_sdk.core.spec import WeatherSpec
 
 
 # True when this SDK was generated with the named feature.

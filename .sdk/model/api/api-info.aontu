@@ -29,3 +29,5 @@ main: {
       website: "https://github.com/robertoduessmann/weather-api"
     }
   }
+}
+

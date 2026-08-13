@@ -81,6 +81,7 @@ class WeatherConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v2/weather/{city}',
                   'parts' => [
@@ -120,6 +121,7 @@ class WeatherConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/weather/{city}',
                   'parts' => [

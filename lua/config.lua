@@ -75,6 +75,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v2/weather/{city}",
                 ["parts"] = {
@@ -114,6 +115,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/weather/{city}",
                 ["parts"] = {

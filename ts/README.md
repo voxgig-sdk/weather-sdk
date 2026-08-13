@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = WeatherSDK.test()
 
 const weather = await client.Weather().load({ id: 'test01' })
-// weather is a bare entity populated with mock response data
+// weather is the entity, populated with mock response data
+// — call weather.data() for the record itself
 console.log(weather)
 ```
 
