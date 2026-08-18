@@ -28,7 +28,7 @@ class WeatherSDK
     utility = WeatherUtility.new
     @_utility = utility
 
-    config = WeatherConfig.make_config
+    config = WeatherConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

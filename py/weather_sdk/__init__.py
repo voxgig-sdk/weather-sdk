@@ -23,8 +23,8 @@ class WeatherSDK:
         utility = WeatherUtility()
         self._utility = utility
 
-        from weather_sdk.config import make_config
-        config = make_config()
+        from weather_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

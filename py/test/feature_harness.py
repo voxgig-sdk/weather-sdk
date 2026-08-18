@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from weather_sdk.config import make_config
+from weather_sdk.config import shared_config
 from weather_sdk.features import _make_feature
 from weather_sdk.core.control import WeatherControl
 from weather_sdk.core.error import WeatherError
@@ -24,7 +24,7 @@ from weather_sdk.core.spec import WeatherSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
