@@ -93,10 +93,10 @@ weather = client.Weather
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | Yes |  |
-| `forecast` | `Array` | Yes |  |
-| `temperature` | `String` | Yes |  |
-| `wind` | `String` | Yes |  |
+| `description` | `String` | Yes | Description of current weather conditions |
+| `forecast` | `Array` | Yes | Weather forecast for the next 2 days |
+| `temperature` | `String` | Yes | Current temperature with unit (°C) |
+| `wind` | `String` | Yes | Current wind speed with unit (km/h) |
 
 ### Operations
 

@@ -6,7 +6,7 @@ The Golang SDK for the Weather API — an entity-oriented client using standard 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Weather(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,10 +258,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"forecast"` |  |
-| `"temperature"` |  |
-| `"wind"` |  |
+| `"description"` | Description of current weather conditions |
+| `"forecast"` | Weather forecast for the next 2 days |
+| `"temperature"` | Current temperature with unit (°C) |
+| `"wind"` | Current wind speed with unit (km/h) |
 
 Operations: Load.
 
@@ -286,10 +286,10 @@ Create an instance: `weather := client.Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `forecast` | `[]any` |  |
-| `temperature` | `string` |  |
-| `wind` | `string` |  |
+| `description` | `string` | Description of current weather conditions |
+| `forecast` | `[]any` | Weather forecast for the next 2 days |
+| `temperature` | `string` | Current temperature with unit (°C) |
+| `wind` | `string` | Current wind speed with unit (km/h) |
 
 #### Example: Load
 

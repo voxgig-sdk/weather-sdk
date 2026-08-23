@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Weather",
+      slug = "weather",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,21 +33,25 @@ local function make_config()
           {
             ["name"] = "description",
             ["req"] = true,
+            ["short"] = "Description of current weather conditions",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "forecast",
             ["req"] = true,
+            ["short"] = "Weather forecast for the next 2 days",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "temperature",
             ["req"] = true,
+            ["short"] = "Current temperature with unit (°C)",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "wind",
             ["req"] = true,
+            ["short"] = "Current wind speed with unit (km/h)",
             ["type"] = "`$STRING`",
           },
         },

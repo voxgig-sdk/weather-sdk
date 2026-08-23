@@ -238,10 +238,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `forecast` |  |
-| `temperature` |  |
-| `wind` |  |
+| `description` | Description of current weather conditions |
+| `forecast` | Weather forecast for the next 2 days |
+| `temperature` | Current temperature with unit (°C) |
+| `wind` | Current wind speed with unit (km/h) |
 
 Operations: Load.
 
@@ -266,10 +266,10 @@ Create an instance: `weather = client.Weather`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `forecast` | `Array` |  |
-| `temperature` | `String` |  |
-| `wind` | `String` |  |
+| `description` | `String` | Description of current weather conditions |
+| `forecast` | `Array` | Weather forecast for the next 2 days |
+| `temperature` | `String` | Current temperature with unit (°C) |
+| `wind` | `String` | Current wind speed with unit (km/h) |
 
 #### Example: Load
 

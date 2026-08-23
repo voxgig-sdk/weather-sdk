@@ -36,24 +36,28 @@
               "active": true,
               "name": "description",
               "req": true,
+              "short": "Description of current weather conditions",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "forecast",
               "req": true,
+              "short": "Weather forecast for the next 2 days",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "temperature",
               "req": true,
+              "short": "Current temperature with unit (°C)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "wind",
               "req": true,
+              "short": "Current wind speed with unit (km/h)",
               "type": "`$STRING`"
             }
           ],

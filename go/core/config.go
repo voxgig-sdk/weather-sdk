@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Weather",
+			"slug": "weather",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,21 +37,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "description",
 						"req": true,
+						"short": "Description of current weather conditions",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "forecast",
 						"req": true,
+						"short": "Weather forecast for the next 2 days",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "temperature",
 						"req": true,
+						"short": "Current temperature with unit (°C)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "wind",
 						"req": true,
+						"short": "Current wind speed with unit (km/h)",
 						"type": "`$STRING`",
 					},
 				},

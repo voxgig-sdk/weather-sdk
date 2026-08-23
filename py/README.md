@@ -241,10 +241,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `forecast` |  |
-| `temperature` |  |
-| `wind` |  |
+| `description` | Description of current weather conditions |
+| `forecast` | Weather forecast for the next 2 days |
+| `temperature` | Current temperature with unit (°C) |
+| `wind` | Current wind speed with unit (km/h) |
 
 Operations: Load.
 
@@ -269,10 +269,10 @@ Create an instance: `weather = client.Weather()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `forecast` | `list` |  |
-| `temperature` | `str` |  |
-| `wind` | `str` |  |
+| `description` | `str` | Description of current weather conditions |
+| `forecast` | `list` | Weather forecast for the next 2 days |
+| `temperature` | `str` | Current temperature with unit (°C) |
+| `wind` | `str` | Current wind speed with unit (km/h) |
 
 #### Example: Load
 

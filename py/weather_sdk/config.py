@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Weather",
+            "slug": "weather",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,21 +54,25 @@ def make_config():
           {
             "name": "description",
             "req": True,
+            "short": "Description of current weather conditions",
             "type": "`$STRING`",
           },
           {
             "name": "forecast",
             "req": True,
+            "short": "Weather forecast for the next 2 days",
             "type": "`$ARRAY`",
           },
           {
             "name": "temperature",
             "req": True,
+            "short": "Current temperature with unit (°C)",
             "type": "`$STRING`",
           },
           {
             "name": "wind",
             "req": True,
+            "short": "Current wind speed with unit (km/h)",
             "type": "`$STRING`",
           },
         ],

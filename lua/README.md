@@ -225,10 +225,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `forecast` |  |
-| `temperature` |  |
-| `wind` |  |
+| `description` | Description of current weather conditions |
+| `forecast` | Weather forecast for the next 2 days |
+| `temperature` | Current temperature with unit (°C) |
+| `wind` | Current wind speed with unit (km/h) |
 
 Operations: Load.
 
@@ -253,10 +253,10 @@ Create an instance: `local weather = client:Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `forecast` | `table` |  |
-| `temperature` | `string` |  |
-| `wind` | `string` |  |
+| `description` | `string` | Description of current weather conditions |
+| `forecast` | `table` | Weather forecast for the next 2 days |
+| `temperature` | `string` | Current temperature with unit (°C) |
+| `wind` | `string` | Current wind speed with unit (km/h) |
 
 #### Example: Load
 

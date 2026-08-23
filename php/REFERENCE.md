@@ -92,10 +92,10 @@ $weather = $client->Weather();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | Yes |  |
-| `forecast` | `array` | Yes |  |
-| `temperature` | `string` | Yes |  |
-| `wind` | `string` | Yes |  |
+| `description` | `string` | Yes | Description of current weather conditions |
+| `forecast` | `array` | Yes | Weather forecast for the next 2 days |
+| `temperature` | `string` | Yes | Current temperature with unit (°C) |
+| `wind` | `string` | Yes | Current wind speed with unit (km/h) |
 
 ### Operations
 
