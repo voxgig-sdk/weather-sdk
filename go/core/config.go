@@ -20,6 +20,7 @@ func MakeConfig() map[string]any {
 				"options": map[string]any{
 					"active": false,
 				},
+				"transport": "base",
 			},
 		},
 		"options": map[string]any{
@@ -45,6 +46,10 @@ func MakeConfig() map[string]any {
 						"req": true,
 						"short": "Weather forecast for the next 2 days",
 						"type": "`$ARRAY`",
+					},
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "temperature",

@@ -44,10 +44,14 @@ describe("WeatherEntity", function()
 
     -- LOAD
     local weather_ref01_ent = client:Weather(nil)
-    local weather_ref01_match_dt0 = {}
+    local weather_ref01_match_dt0 = {
+      id = weather_ref01_data["id"],
+    }
     local weather_ref01_data_dt0_loaded, err = weather_ref01_ent:load(weather_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(weather_ref01_data_dt0_loaded)
+    local weather_ref01_data_dt0_load_result = helpers.to_map(type(weather_ref01_data_dt0_loaded) == 'table' and weather_ref01_data_dt0_loaded.data_get and weather_ref01_data_dt0_loaded:data_get() or weather_ref01_data_dt0_loaded)
+    assert.is_not_nil(weather_ref01_data_dt0_load_result)
+    assert.are.equal(weather_ref01_data_dt0_load_result["id"], weather_ref01_data["id"])
 
   end)
 end)

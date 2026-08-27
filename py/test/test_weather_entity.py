@@ -48,9 +48,13 @@ class TestWeatherEntity:
 
         # LOAD
         weather_ref01_ent = client.Weather(None)
-        weather_ref01_match_dt0 = {}
+        weather_ref01_match_dt0 = {
+            "id": weather_ref01_data["id"],
+        }
         weather_ref01_data_dt0_loaded = weather_ref01_ent.load(weather_ref01_match_dt0, None)
-        assert weather_ref01_data_dt0_loaded is not None
+        weather_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(weather_ref01_data_dt0_loaded))
+        assert weather_ref01_data_dt0_load_result is not None
+        assert weather_ref01_data_dt0_load_result["id"] == weather_ref01_data["id"]
 
 
 

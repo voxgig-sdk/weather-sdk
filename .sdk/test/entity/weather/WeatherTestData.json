@@ -2,35 +2,35 @@
   "existing": {
     "weather": {
       "WEATHER00": {
-        "description": "s28",
+        "description": "s32",
         "forecast": [],
-        "temperature": "s2a",
-        "wind": "s2b",
-        "id": "WEATHER00"
+        "id": "WEATHER00",
+        "temperature": "s35",
+        "wind": "s36"
       },
       "WEATHER01": {
-        "description": "s50",
+        "description": "s64",
         "forecast": [],
-        "temperature": "s52",
-        "wind": "s53",
-        "id": "WEATHER01"
+        "id": "WEATHER01",
+        "temperature": "s67",
+        "wind": "s68"
       },
       "WEATHER02": {
-        "description": "s78",
+        "description": "s96",
         "forecast": [],
-        "temperature": "s7a",
-        "wind": "s7b",
-        "id": "WEATHER02"
+        "id": "WEATHER02",
+        "temperature": "s99",
+        "wind": "s9a"
       }
     }
   },
   "new": {
     "weather": {
       "weather_ref01": {
-        "description": "sa0",
+        "description": "sc8",
         "forecast": [],
-        "temperature": "sa2",
-        "wind": "sa3"
+        "temperature": "scb",
+        "wind": "scc"
       }
     }
   }

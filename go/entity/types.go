@@ -16,6 +16,7 @@ import (
 type Weather struct {
 	Description string `json:"description"`
 	Forecast []any `json:"forecast"`
+	Id *string `json:"id,omitempty"`
 	Temperature string `json:"temperature"`
 	Wind string `json:"wind"`
 }

@@ -250,6 +250,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `description` | Description of current weather conditions |
 | `forecast` | Weather forecast for the next 2 days |
+| `id` |  |
 | `temperature` | Current temperature with unit (°C) |
 | `wind` | Current wind speed with unit (km/h) |
 
@@ -278,6 +279,7 @@ Create an instance: `$weather = $client->Weather();`
 | --- | --- | --- |
 | `description` | `string` | Description of current weather conditions |
 | `forecast` | `array` | Weather forecast for the next 2 days |
+| `id` | `string` |  |
 | `temperature` | `string` | Current temperature with unit (°C) |
 | `wind` | `string` | Current wind speed with unit (km/h) |
 

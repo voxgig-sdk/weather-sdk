@@ -16,6 +16,9 @@
 # @!attribute [rw] forecast
 #   @return [Array]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] temperature
 #   @return [String]
 #
@@ -24,6 +27,7 @@
 Weather = Struct.new(
   :description,
   :forecast,
+  :id,
   :temperature,
   :wind,
   keyword_init: true

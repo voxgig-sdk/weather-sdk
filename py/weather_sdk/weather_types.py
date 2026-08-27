@@ -16,11 +16,15 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Weather(TypedDict):
+class WeatherRequired(TypedDict):
     description: str
     forecast: list
     temperature: str
     wind: str
+
+
+class Weather(WeatherRequired, total=False):
+    id: str
 
 
 class WeatherLoadMatch(TypedDict):

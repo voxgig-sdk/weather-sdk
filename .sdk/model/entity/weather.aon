@@ -18,6 +18,11 @@ main: kit: entity: weather: {
       type: "`$ARRAY`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "temperature"
       req: true
       short: "Current temperature with unit (°C)"
@@ -30,6 +35,11 @@ main: kit: entity: weather: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "weather"
   op: {

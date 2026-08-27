@@ -48,9 +48,13 @@ class WeatherEntityTest extends TestCase
 
         // LOAD
         $weather_ref01_ent = $client->Weather(null);
-        $weather_ref01_match_dt0 = [];
+        $weather_ref01_match_dt0 = [
+            "id" => $weather_ref01_data["id"],
+        ];
         $weather_ref01_data_dt0_loaded = $weather_ref01_ent->load($weather_ref01_match_dt0, null);
-        $this->assertNotNull($weather_ref01_data_dt0_loaded);
+        $weather_ref01_data_dt0_load_result = Helpers::to_map(is_object($weather_ref01_data_dt0_loaded) && method_exists($weather_ref01_data_dt0_loaded, 'data_get') ? $weather_ref01_data_dt0_loaded->data_get() : $weather_ref01_data_dt0_loaded);
+        $this->assertNotNull($weather_ref01_data_dt0_load_result);
+        $this->assertEquals($weather_ref01_data_dt0_load_result["id"], $weather_ref01_data["id"]);
 
     }
 }

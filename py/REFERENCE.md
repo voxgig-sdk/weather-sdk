@@ -89,6 +89,7 @@ weather = client.Weather()
 | --- | --- | --- | --- |
 | `description` | `str` | Yes | Description of current weather conditions |
 | `forecast` | `list` | Yes | Weather forecast for the next 2 days |
+| `id` | `str` | No |  |
 | `temperature` | `str` | Yes | Current temperature with unit (°C) |
 | `wind` | `str` | Yes | Current wind speed with unit (km/h) |
 

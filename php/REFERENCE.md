@@ -94,6 +94,7 @@ $weather = $client->Weather();
 | --- | --- | --- | --- |
 | `description` | `string` | Yes | Description of current weather conditions |
 | `forecast` | `array` | Yes | Weather forecast for the next 2 days |
+| `id` | `string` | No |  |
 | `temperature` | `string` | Yes | Current temperature with unit (°C) |
 | `wind` | `string` | Yes | Current wind speed with unit (km/h) |
 

@@ -145,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -287,6 +287,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `description` | Description of current weather conditions |
 | `forecast` | Weather forecast for the next 2 days |
+| `id` |  |
 | `temperature` | Current temperature with unit (°C) |
 | `wind` | Current wind speed with unit (km/h) |
 
@@ -315,6 +316,7 @@ Create an instance: `const weather = client.Weather()`
 | --- | --- | --- |
 | `description` | `string` | Description of current weather conditions |
 | `forecast` | `any[]` | Weather forecast for the next 2 days |
+| `id` | `string` |  |
 | `temperature` | `string` | Current temperature with unit (°C) |
 | `wind` | `string` | Current wind speed with unit (km/h) |
 

@@ -41,9 +41,13 @@ class WeatherEntityTest < Minitest::Test
 
     # LOAD
     weather_ref01_ent = client.Weather(nil)
-    weather_ref01_match_dt0 = {}
+    weather_ref01_match_dt0 = {
+      "id" => weather_ref01_data["id"],
+    }
     weather_ref01_data_dt0_loaded = weather_ref01_ent.load(weather_ref01_match_dt0, nil)
-    assert !weather_ref01_data_dt0_loaded.nil?
+    weather_ref01_data_dt0_load_result = Helpers.to_map(weather_ref01_data_dt0_loaded.respond_to?(:data_get) ? weather_ref01_data_dt0_loaded.data_get : weather_ref01_data_dt0_loaded)
+    assert !weather_ref01_data_dt0_load_result.nil?
+    assert_equal weather_ref01_data_dt0_load_result["id"], weather_ref01_data["id"]
 
   end
 end

@@ -42,6 +42,7 @@ class WeatherConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -67,6 +68,10 @@ class WeatherConfig
               'req' => true,
               'short' => 'Weather forecast for the next 2 days',
               'type' => '`$ARRAY`',
+            ],
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
             ],
             [
               'name' => 'temperature',

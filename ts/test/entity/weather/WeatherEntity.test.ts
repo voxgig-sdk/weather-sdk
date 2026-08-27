@@ -59,9 +59,12 @@ describe('WeatherEntity', async () => {
 
     let weather_ref01_data = Object.values(setup.data.existing.weather)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const weather_ref01_ent = client.Weather()
+    const weather_ref01_match_dt0: any = {}
+    weather_ref01_match_dt0.id = weather_ref01_data.id
+    const weather_ref01_data_dt0 = (await weather_ref01_ent.load(weather_ref01_match_dt0)).data()
+    assert(weather_ref01_data_dt0.id === weather_ref01_data.id)
 
 
   })

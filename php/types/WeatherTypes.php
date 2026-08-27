@@ -17,6 +17,7 @@ class Weather
 {
     public string $description;
     public array $forecast;
+    public ?string $id = null;
     public string $temperature;
     public string $wind;
 }

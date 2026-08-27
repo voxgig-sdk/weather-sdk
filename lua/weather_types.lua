@@ -9,6 +9,7 @@
 ---@class Weather
 ---@field description string
 ---@field forecast table
+---@field id? string
 ---@field temperature string
 ---@field wind string
 

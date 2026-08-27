@@ -260,6 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"description"` | Description of current weather conditions |
 | `"forecast"` | Weather forecast for the next 2 days |
+| `"id"` |  |
 | `"temperature"` | Current temperature with unit (°C) |
 | `"wind"` | Current wind speed with unit (km/h) |
 
@@ -288,6 +289,7 @@ Create an instance: `weather := client.Weather(nil)`
 | --- | --- | --- |
 | `description` | `string` | Description of current weather conditions |
 | `forecast` | `[]any` | Weather forecast for the next 2 days |
+| `id` | `string` |  |
 | `temperature` | `string` | Current temperature with unit (°C) |
 | `wind` | `string` | Current wind speed with unit (km/h) |
 
