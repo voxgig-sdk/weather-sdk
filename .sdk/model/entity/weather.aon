@@ -61,16 +61,22 @@ main: kit: entity: weather: {
           }
           method: "GET"
           orig: "/v2/weather/{city}"
-          parts: [
-            "v2"
-            "weather"
-            "{id}"
-          ]
           rename: {
             param: {
               city: "id"
             }
           }
+          segments: [
+            {
+              lit: "v2"
+            }
+            {
+              lit: "weather"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -96,15 +102,19 @@ main: kit: entity: weather: {
           }
           method: "GET"
           orig: "/weather/{city}"
-          parts: [
-            "weather"
-            "{id}"
-          ]
           rename: {
             param: {
               city: "id"
             }
           }
+          segments: [
+            {
+              lit: "weather"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

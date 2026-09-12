@@ -60,6 +60,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "weather",
         ["op"] = {
           ["load"] = {
@@ -82,14 +86,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/v2/weather/{city}",
-                ["parts"] = {
-                  "v2",
-                  "weather",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["city"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "v2",
+                  },
+                  {
+                    ["lit"] = "weather",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -100,6 +110,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "v2",
+                  "weather",
+                  "{id}",
                 },
               },
               {
@@ -118,13 +133,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/weather/{city}",
-                ["parts"] = {
-                  "weather",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["city"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "weather",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -135,6 +154,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "weather",
+                  "{id}",
                 },
               },
             },

@@ -72,6 +72,10 @@ module WeatherConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "weather",
           "op" => {
             "load" => {
@@ -94,16 +98,22 @@ module WeatherConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/v2/weather/{city}",
-                  "parts" => [
-                    "v2",
-                    "weather",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "city" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "v2",
+                    },
+                    {
+                      "lit" => "weather",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -113,6 +123,11 @@ module WeatherConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "v2",
+                    "weather",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {
@@ -130,15 +145,19 @@ module WeatherConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/weather/{city}",
-                  "parts" => [
-                    "weather",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "city" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "weather",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -148,6 +167,10 @@ module WeatherConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "weather",
+                    "{id}",
+                  ],
                 },
               ],
             },

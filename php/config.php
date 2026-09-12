@@ -86,6 +86,10 @@ class WeatherConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'weather',
           'op' => [
             'load' => [
@@ -108,14 +112,20 @@ class WeatherConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/v2/weather/{city}',
-                  'parts' => [
-                    'v2',
-                    'weather',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'city' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'v2',
+                    ],
+                    [
+                      'lit' => 'weather',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -126,6 +136,11 @@ class WeatherConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'v2',
+                    'weather',
+                    '{id}',
                   ],
                 ],
                 [
@@ -144,13 +159,17 @@ class WeatherConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/weather/{city}',
-                  'parts' => [
-                    'weather',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'city' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'weather',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -161,6 +180,10 @@ class WeatherConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'weather',
+                    '{id}',
                   ],
                 ],
               ],
