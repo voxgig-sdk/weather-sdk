@@ -105,7 +105,7 @@ local result, err = client:Weather():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/weather` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-sdk/releases) |
+| TypeScript | `@voxgig-sdk/weather-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-sdk/releases) |
 | Python | `voxgig-sdk-weather` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-sdk/releases) |
 | PHP | `voxgig-sdk/weather` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/weather-sdk/go` | `go get github.com/voxgig-sdk/weather-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Weather():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { WeatherSDK } from '@voxgig-sdk/weather'
+import { WeatherSDK } from '@voxgig-sdk/weather-sdk'
 
 const client = new WeatherSDK()
 
